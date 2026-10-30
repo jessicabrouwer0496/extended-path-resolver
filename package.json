@@ -1,0 +1,17 @@
+{
+  "name": "extended-path-resolver",
+  "version": "0.1.0",
+  "description": "A Node.js path resolver that preserves trailing dots, spaces, and NTFS alternate data stream suffixes.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
