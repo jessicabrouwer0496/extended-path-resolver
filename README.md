@@ -21,3 +21,10 @@ This library resolves the path string only — it does not touch the filesystem.
 The placeholder characters come from Unicode's private-use area (`U+E000`, `U+E001`). They are illegal in real filenames on every common filesystem, which is exactly why they are safe to use as temporary stand-ins. If your upstream code has already stripped a trailing dot before the string reaches this library, there is nothing to restore — call it as close to the source of the path as possible.
 
 Only the *final* segment is inspected for an ADS suffix. A colon in a directory component is a genuine path error and is left for `path.resolve` to reject as it normally would.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
